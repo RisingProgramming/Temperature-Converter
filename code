@@ -1,0 +1,38 @@
+def temperature_converter():
+    print("Welcome to the Advanced Temperature Converter!")
+    print("Enter the temperature and the unit you want to convert from and to.")
+    while True:
+        temperature = float(input("Temperature: "))
+        from_unit = input("Convert from unit (Celsius, Fahrenheit, Kelvin): ")
+        to_unit = input("Convert to unit (Celsius, Fahrenheit, Kelvin): ")
+
+        if from_unit == "Celsius":
+            if to_unit == "Fahrenheit":
+                result = (temperature * 9 / 5) + 32
+            elif to_unit == "Kelvin":
+                result = temperature + 273.15
+        elif from_unit == "Fahrenheit":
+            if to_unit == "Celsius":
+                result = (temperature - 32) * 5 / 9
+            elif to_unit == "Kelvin":
+                result = (temperature + 459.67) * 5 / 9
+        elif from_unit == "Kelvin":
+            if to_unit == "Celsius":
+                result = temperature - 273.15
+            elif to_unit == "Fahrenheit":
+                result = (temperature * 9 / 5) - 459.67
+        else:
+            print("Error: Invalid unit. Please enter a unit of temperature (Celsius, Fahrenheit, Kelvin).")
+            continue
+
+        print(f"Result: {result} {to_unit}")
+
+        play_again = input("Would you like to convert another temperature (Yes or No)? ").lower()
+        if play_again == "yes":
+            continue
+        else:
+            break
+
+    print("Thank you for using the Advanced Temperature Converter. Have a great day.")
+    
+temperature_converter()
